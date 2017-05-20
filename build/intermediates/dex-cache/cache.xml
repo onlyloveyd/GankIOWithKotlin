@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/libs/jsoup-1.10.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="61f84a97f1a4f5905547b8b74afff8dc93f4cfce">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_80eeb5df5f37b08ec1039c86030dd0be4aecbdee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.2/109c63008b2d569e38696a3178ee2493b0f6c776/kotlin-stdlib-1.1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="109c63008b2d569e38696a3178ee2493b0f6c776">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-1.1.2_bf6049594964d467e5c7f259952b9db39515b1b5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.2.0/41e67dba73c3347e4503761642c39d0e06ca1f2/retrofit-2.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="041e67dba73c3347e4503761642c39d0e06ca1f2">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.2.0_6adc411d15b2b091cc8544ed1c7728db6cf7a11b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/org.jetbrains.anko/anko-commons/0.10.0/3de0694cacc8fb6f118091c7ae1ec6540047ed0d/anko-commons-0.10.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3de0694cacc8fb6f118091c7ae1ec6540047ed0d">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/anko-commons-0.10.0_12bf02c7ccee18ca95fbdd1c3518df63454769f1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava2/2.2.0/3ee0e527143abbe130ddba4c1fa6c4be5d66ed5c/adapter-rxjava2-2.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3ee0e527143abbe130ddba4c1fa6c4be5d66ed5c">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/adapter-rxjava2-2.2.0_0e533027daa42bb7d84689ef1b567c9232880ded/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_35e0e433288add3a2278068d96e8dc07c62206ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="29b86129bcbbb69ba5c24fc8b62462d39cda8893">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a583beec9f67905592002c2f203c1762b1dfb00d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.android/build-cache/d23bb87f68a5eb8e209f93a99f224a2a53afea81/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b2cb5e4ead4034da3903770c55334c257b874dbb">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a076498a358d924d4a172ef09b34562a0ab9f946/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.0.1/57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb/rxjava-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-2.0.1_7a653cbac1b60b81f5696059d6efbfe1eccf8efa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/reactive-streams-1.0.0_4bdfbb80a9cf26e6313c2db3c26b04d136ab140e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.6.0_014678cd0deecfdacc1c3d71c8c3afd1ad18eb0a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.android/build-cache/e4b190b8ccb6708c550a8667d01acef5e38aeaee/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_455d01f0c378096c7b17db97c456bc1c70677267/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingling/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="/Users/lingling/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-13.0_d9a6d2775f6eb458118c075401888b1c735c5ba8/classes.dex" />
+    </item>
+
+</items>

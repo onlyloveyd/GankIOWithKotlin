@@ -69,30 +69,31 @@ class DailyFragment : BaseFragment(), OnDatePickedListener {
                 }
                 if (dailyData.category == null || dailyData.category.size == 0) {
                     onDataEmpty()
-                }
-                if (dailyData.results.android != null) {
-                    mVisitableList.addAll(dailyData.results.android)
-                }
-                if (dailyData.results.app != null) {
-                    mVisitableList.addAll(dailyData.results.app)
-                }
-                if (dailyData.results.bonus != null) {
-                    mVisitableList.addAll(dailyData.results.bonus)
-                }
-                if (dailyData.results.ios != null) {
-                    mVisitableList.addAll(dailyData.results.ios)
-                }
-                if (dailyData.results.js != null) {
-                    mVisitableList.addAll(dailyData.results.js)
-                }
-                if (dailyData.results.rec != null) {
-                    mVisitableList.addAll(dailyData.results.rec)
-                }
-                if (dailyData.results.res != null) {
-                    mVisitableList.addAll(dailyData.results.res)
-                }
-                if (dailyData.results.video != null) {
-                    mVisitableList.addAll(dailyData.results.video)
+                } else {
+                    if (dailyData.results.android != null) {
+                        mVisitableList.addAll(dailyData.results.android)
+                    }
+                    if (dailyData.results.app != null) {
+                        mVisitableList.addAll(dailyData.results.app)
+                    }
+                    if (dailyData.results.bonus != null) {
+                        mVisitableList.addAll(dailyData.results.bonus)
+                    }
+                    if (dailyData.results.ios != null) {
+                        mVisitableList.addAll(dailyData.results.ios)
+                    }
+                    if (dailyData.results.js != null) {
+                        mVisitableList.addAll(dailyData.results.js)
+                    }
+                    if (dailyData.results.rec != null) {
+                        mVisitableList.addAll(dailyData.results.rec)
+                    }
+                    if (dailyData.results.res != null) {
+                        mVisitableList.addAll(dailyData.results.res)
+                    }
+                    if (dailyData.results.video != null) {
+                        mVisitableList.addAll(dailyData.results.video)
+                    }
                 }
                 mMultiRecyclerAdapter?.data = mVisitableList;
             }

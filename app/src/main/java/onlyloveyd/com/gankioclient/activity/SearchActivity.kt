@@ -118,7 +118,7 @@ class SearchActivity : AppCompatActivity(), BGARefreshLayout.BGARefreshLayoutDel
             }
 
             override fun onNext(searchData: SearchData) {
-                if (rl_search_content!!.isLoadingMore) {
+                if (rl_search_content.isLoadingMore) {
                 } else {
                     mVisitableList.clear()
                 }

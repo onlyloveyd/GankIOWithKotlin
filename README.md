@@ -1,12 +1,8 @@
 # 技术船
 ![icon](/app/src/main/res/mipmap-xxhdpi/ic_header.png "")
 
-每日提供技术干货的 App
-
-## 下载
-[fir](https://fir.im/md5y) 
-
-[酷安](http://www.coolapk.com/apk/onlyloveyd.com.gankioclient) 
+每日提供技术干货的App，Kotlin语言实现，实际上是从之前的项目转换过来的，直接转换是无法正常编译的，按照Kotlin的语言规范进行了大量的修改。
+Java代码实现干货集中营请转到[干货集中营](https://github.com/onlyloveyd/GankIOClient)
 
 ## 干货数据源
 应用中的所有干货数据均来自[干货集中营](http://gank.io/)。

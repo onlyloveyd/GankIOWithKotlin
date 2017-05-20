@@ -39,7 +39,7 @@
 
 -dontwarn org.immutables.gson.**
 -keep class org.immutables.gson.** { *;}
--keep class onlyloveyd.com.gankioclient.gsonbean.**{*;}
+-keep class onlyloveyd.com.gankioclient.data.**{*;}
 
 #okhttp
 -keepattributes Signature

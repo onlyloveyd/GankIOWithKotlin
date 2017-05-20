@@ -52,14 +52,14 @@ class OrderActivity : AppCompatActivity(), OnStartDragListener {
         ButterKnife.bind(this)
 
         setSupportActionBar(tl_sort)
-        tl_sort!!.setNavigationIcon(R.drawable.back)
-        tl_sort!!.setTitleTextAppearance(this, R.style.ToolBarTextAppearance)
+        tl_sort.setNavigationIcon(R.drawable.back)
+        tl_sort.setTitleTextAppearance(this, R.style.ToolBarTextAppearance)
 
         val adapter = OrderAdapter(this, this)
 
-        rv_sort!!.setHasFixedSize(true)
-        rv_sort!!.adapter = adapter
-        rv_sort!!.layoutManager = LinearLayoutManager(this)
+        rv_sort.setHasFixedSize(true)
+        rv_sort.adapter = adapter
+        rv_sort.layoutManager = LinearLayoutManager(this)
 
         val callback = SimpleItemTouchHelperCallback(adapter)
         mItemTouchHelper = ItemTouchHelper(callback)
