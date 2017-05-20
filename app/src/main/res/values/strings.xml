@@ -1,0 +1,23 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">技术船</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_search">搜索</string>
+
+
+    <string name="about_nickname">Onlyloveyd</string>
+    <string name="about_sign">爱篮球的aNdroid Doter</string>
+
+    <string name="about_github">onlyloveyd</string>
+    <string name="about_email">onlyloveyd@gmail.com</string>
+    <string name="about_website">http://onlyloveyd.cn</string>
+    <string name="about_android_csdn">http://blog.csdn.net/poorkick</string>
+    <string name="about_brief">Just keep going and work fine. Focus on Android.
+    </string>
+    <string name="about_subtitle">Android Developer</string>
+    <string name="about_name">onlyloveyd</string>
+    <string name="load_more">加载更多</string>
+    <string name="empty_data">这里空空的什么都没有呢...</string>
+    <string name="network_error">网络请求错误</string>
+    <string name="version_update">#版本<xliff:g id="VERSION">%1$s</xliff:g>#可更新</string>
+</resources>

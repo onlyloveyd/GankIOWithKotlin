@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="IconHandler-v2.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/8b5a127aa22de29bcf97399187a4d06cd5aac6bd/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/8b5a127aa22de29bcf97399187a4d06cd5aac6bd/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jrvansuita/IconHandler/v2.0.0/9769183189ee50bd1dd086cad3375490dcc6431/IconHandler-v2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

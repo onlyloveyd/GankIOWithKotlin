@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="fir-sdk-1.3.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/d14012e0b70255c62ecd1db82f1322ba07572e90/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/d14012e0b70255c62ecd1db82f1322ba07572e90/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
