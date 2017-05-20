@@ -1,5 +1,5 @@
 # 技术船
-![icon](/app/src/main/res/mipmap-xxhdpi/ic_header.png "")
+![icon](/app/src/main/res/mipmap-xxhdpi/ic_launcher.png "")
 
 每日提供技术干货的App，Kotlin语言实现，实际上是从之前的项目转换过来的，直接转换是无法正常编译的，按照Kotlin的语言规范进行了大量的修改。
 Java代码实现干货集中营请转到[干货集中营](https://github.com/onlyloveyd/GankIOClient)
