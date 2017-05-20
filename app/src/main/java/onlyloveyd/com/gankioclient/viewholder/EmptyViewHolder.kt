@@ -22,7 +22,7 @@ import android.view.View
 import android.widget.TextView
 
 import onlyloveyd.com.gankioclient.R
-import onlyloveyd.com.gankioclient.gsonbean.EmptyBean
+import onlyloveyd.com.gankioclient.data.EmptyData
 
 /**
  * 文 件 名: EmptyViewHolder
@@ -32,9 +32,9 @@ import onlyloveyd.com.gankioclient.gsonbean.EmptyBean
  * 博   客: https://onlyloveyd.cn
  * 描   述：处理空数据和异常信息
  */
-class EmptyViewHolder(itemView: View) : BaseViewHolder<EmptyBean>(itemView) {
+class EmptyViewHolder(itemView: View) : BaseViewHolder<EmptyData>(itemView) {
 
-    override fun bindViewData(data: EmptyBean) {
+    override fun bindViewData(data: EmptyData) {
         val textView = getView(R.id.tv_empty) as TextView
         if (textView != null) {
             textView.text = data.message

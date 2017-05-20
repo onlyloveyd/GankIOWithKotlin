@@ -25,8 +25,8 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_gank.*
 import onlyloveyd.com.gankioclient.BuildConfig
 import onlyloveyd.com.gankioclient.activity.GankActivity
+import onlyloveyd.com.gankioclient.data.DailyData
 import onlyloveyd.com.gankioclient.decorate.OnDatePickedListener
-import onlyloveyd.com.gankioclient.gsonbean.DailyBean
 import onlyloveyd.com.gankioclient.http.HttpMethods
 import onlyloveyd.com.gankioclient.utils.Constant
 import java.util.*
@@ -47,7 +47,7 @@ class DailyFragment : BaseFragment(), OnDatePickedListener {
     }
 
     private fun getDaily(year: Int, month: Int, day: Int) {
-        val observer = object : Observer<DailyBean> {
+        val observer = object : Observer<DailyData> {
             override fun onSubscribe(d: Disposable) {
 
             }
@@ -62,37 +62,37 @@ class DailyFragment : BaseFragment(), OnDatePickedListener {
                 onNetworkError()
             }
 
-            override fun onNext(dailyBean: DailyBean) {
+            override fun onNext(dailyData: DailyData) {
                 if (rl_gank_refresh.isLoadingMore()) {
                 } else {
                     mVisitableList.clear()
                 }
-                if (dailyBean.category == null || dailyBean.category.size == 0) {
+                if (dailyData.category == null || dailyData.category.size == 0) {
                     onDataEmpty()
                 }
-                if (dailyBean.results.android != null) {
-                    mVisitableList.addAll(dailyBean.results.android)
+                if (dailyData.results.android != null) {
+                    mVisitableList.addAll(dailyData.results.android)
                 }
-                if (dailyBean.results.app != null) {
-                    mVisitableList.addAll(dailyBean.results.app)
+                if (dailyData.results.app != null) {
+                    mVisitableList.addAll(dailyData.results.app)
                 }
-                if (dailyBean.results.bonus != null) {
-                    mVisitableList.addAll(dailyBean.results.bonus)
+                if (dailyData.results.bonus != null) {
+                    mVisitableList.addAll(dailyData.results.bonus)
                 }
-                if (dailyBean.results.ios != null) {
-                    mVisitableList.addAll(dailyBean.results.ios)
+                if (dailyData.results.ios != null) {
+                    mVisitableList.addAll(dailyData.results.ios)
                 }
-                if (dailyBean.results.js != null) {
-                    mVisitableList.addAll(dailyBean.results.js)
+                if (dailyData.results.js != null) {
+                    mVisitableList.addAll(dailyData.results.js)
                 }
-                if (dailyBean.results.rec != null) {
-                    mVisitableList.addAll(dailyBean.results.rec)
+                if (dailyData.results.rec != null) {
+                    mVisitableList.addAll(dailyData.results.rec)
                 }
-                if (dailyBean.results.res != null) {
-                    mVisitableList.addAll(dailyBean.results.res)
+                if (dailyData.results.res != null) {
+                    mVisitableList.addAll(dailyData.results.res)
                 }
-                if (dailyBean.results.video != null) {
-                    mVisitableList.addAll(dailyBean.results.video)
+                if (dailyData.results.video != null) {
+                    mVisitableList.addAll(dailyData.results.video)
                 }
                 mMultiRecyclerAdapter?.data = mVisitableList;
             }

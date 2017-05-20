@@ -21,10 +21,10 @@ package onlyloveyd.com.gankioclient.factory
 
 import android.view.View
 import onlyloveyd.com.gankioclient.R
-import onlyloveyd.com.gankioclient.gsonbean.DailyBean
-import onlyloveyd.com.gankioclient.gsonbean.EmptyBean
-import onlyloveyd.com.gankioclient.gsonbean.MindBean
-import onlyloveyd.com.gankioclient.gsonbean.ResultsBean
+import onlyloveyd.com.gankioclient.data.CategoryData
+import onlyloveyd.com.gankioclient.data.DetailsData
+import onlyloveyd.com.gankioclient.data.EmptyData
+import onlyloveyd.com.gankioclient.data.MindData
 import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.viewholder.*
 
@@ -38,19 +38,19 @@ import onlyloveyd.com.gankioclient.viewholder.*
  */
 class GankTypeFactory : TypeFactory {
 
-    override fun type(dailyBean: DailyBean.ResultsBean.DetailsBean): Int = DAILY_ITEM_LAYOUT
+    override fun type(detailsData: DetailsData): Int = DAILY_ITEM_LAYOUT
 
-    override fun type(contentBean: ResultsBean): Int {
-        if (contentBean.type == Constant.BONUS) {
+    override fun type(categoryData: CategoryData): Int {
+        if (categoryData.type == Constant.BONUS) {
             return BONUS_ITEM_LAYOUT
         } else {
             return DATA_ITEM_LAYOUT
         }
     }
 
-    override fun type(emptyBean: EmptyBean): Int = EMPTY_ITEM_LAYOUT
+    override fun type(emptyData: EmptyData): Int = EMPTY_ITEM_LAYOUT
 
-    override fun type(mindBean: MindBean): Int = MIND_ITEM_LAYOUT
+    override fun type(mindData: MindData): Int = MIND_ITEM_LAYOUT
 
     override fun createViewHolder(type: Int, itemView: View): BaseViewHolder<*> {
         when (type) {

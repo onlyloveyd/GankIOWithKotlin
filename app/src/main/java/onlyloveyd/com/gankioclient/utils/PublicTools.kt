@@ -34,7 +34,7 @@ import im.fir.sdk.VersionCheckCallback
 import onlyloveyd.com.gankioclient.BuildConfig
 import onlyloveyd.com.gankioclient.R
 import onlyloveyd.com.gankioclient.activity.WebActivity
-import onlyloveyd.com.gankioclient.gsonbean.VersionBean
+import onlyloveyd.com.gankioclient.data.VersionData
 import onlyloveyd.com.gankioclient.http.UpdateManager
 import onlyloveyd.com.gankioclient.utils.Constant.ONE_DAY
 import onlyloveyd.com.gankioclient.utils.Constant.ONE_HOUR
@@ -182,16 +182,16 @@ object PublicTools {
                     Log.i("yidong", "check from fir.im success! " + "\n" + versionJson)
                 }
                 val gson = Gson()
-                val versionBean = gson.fromJson(versionJson, VersionBean::class.java)
-                if (BuildConfig.VERSION_NAME == versionBean.versionShort) {
+                val versionData = gson.fromJson(versionJson, VersionData::class.java)
+                if (BuildConfig.VERSION_NAME == versionData.versionShort) {
                     if (!auto) {
                         Toast.makeText(context, "当前已经是最新版本", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     AlertDialog.Builder(context).setTitle(
                             context.getString(R.string.version_update,
-                                    versionBean.versionShort))
-                            .setMessage("更新日志：\n" + versionBean.changelog)
+                                    versionData.versionShort))
+                            .setMessage("更新日志：\n" + versionData.changelog)
                             .setPositiveButton("下载") { dialog, which ->
                                 //                                    Intent intent = new Intent();
                                 //                                    intent.setAction(Intent.ACTION_VIEW);
@@ -200,7 +200,7 @@ object PublicTools {
                                 val updateManager = UpdateManager(context)
                                 updateManager.setDownUrl(
                                         Constant.GITHUB_LATEST_APK)
-                                updateManager.setApkName(versionBean.name + versionBean.versionShort + ".apk")
+                                updateManager.setApkName(versionData.name + versionData.versionShort + ".apk")
                                 updateManager.showDownloadDialog()
                             }
                             .setNegativeButton("取消") { dialog, which -> dialog.dismiss() }

@@ -34,8 +34,8 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_search.*
 import onlyloveyd.com.gankioclient.R
 import onlyloveyd.com.gankioclient.adapter.MultiRecyclerAdapter
+import onlyloveyd.com.gankioclient.data.SearchData
 import onlyloveyd.com.gankioclient.decorate.Visitable
-import onlyloveyd.com.gankioclient.gsonbean.SearchBean
 import onlyloveyd.com.gankioclient.http.HttpMethods
 import onlyloveyd.com.gankioclient.utils.PublicTools
 import java.util.*
@@ -75,13 +75,13 @@ class SearchActivity : AppCompatActivity(), BGARefreshLayout.BGARefreshLayoutDel
 
     private fun initBGALayout() {
         // 为BGARefreshLayout 设置代理
-        rl_search_content!!.setDelegate(this)
+        rl_search_content.setDelegate(this)
         // 设置下拉刷新和上拉加载更多的风格     参数1：应用程序上下文，参数2：是否具有上拉加载更多功能
         val refreshViewHolder = BGANormalRefreshViewHolder(this, true)
         refreshViewHolder.setLoadingMoreText("加载更多")
         refreshViewHolder.setLoadMoreBackgroundColorRes(R.color.white)
         refreshViewHolder.setRefreshViewBackgroundColorRes(R.color.white)
-        rl_search_content!!.setRefreshViewHolder(refreshViewHolder)
+        rl_search_content.setRefreshViewHolder(refreshViewHolder)
     }
 
     private fun initRvContent() {
@@ -99,7 +99,7 @@ class SearchActivity : AppCompatActivity(), BGARefreshLayout.BGARefreshLayoutDel
     }
 
     private fun queryGanks(keyword: String, category: String, pageindex: Int) {
-        val subscriber = object : Observer<SearchBean> {
+        val subscriber = object : Observer<SearchData> {
             override fun onComplete() {
                 if (rl_search_content.isLoadingMore) {
                     rl_search_content.endLoadingMore()
@@ -117,12 +117,12 @@ class SearchActivity : AppCompatActivity(), BGARefreshLayout.BGARefreshLayoutDel
 
             }
 
-            override fun onNext(httpBean: SearchBean) {
+            override fun onNext(searchData: SearchData) {
                 if (rl_search_content!!.isLoadingMore) {
                 } else {
                     mVisitableList.clear()
                 }
-                mVisitableList.addAll(httpBean.results)
+                mVisitableList.addAll(searchData.results)
                 mMultiRecyclerAdapter?.data = mVisitableList
             }
         }

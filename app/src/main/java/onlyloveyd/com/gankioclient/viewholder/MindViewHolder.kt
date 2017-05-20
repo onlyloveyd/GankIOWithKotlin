@@ -23,7 +23,7 @@ import android.view.View
 import android.widget.TextView
 
 import onlyloveyd.com.gankioclient.R
-import onlyloveyd.com.gankioclient.gsonbean.MindBean
+import onlyloveyd.com.gankioclient.data.MindData
 import onlyloveyd.com.gankioclient.utils.PublicTools
 
 /**
@@ -34,9 +34,9 @@ import onlyloveyd.com.gankioclient.utils.PublicTools
  * 博   客: https://onlyloveyd.cn
  * 描   述：单类数据ViewHolder
  */
-class MindViewHolder(itemView: View) : BaseViewHolder<MindBean>(itemView) {
+class MindViewHolder(itemView: View) : BaseViewHolder<MindData>(itemView) {
 
-    override fun bindViewData(data: MindBean) {
+    override fun bindViewData(data: MindData) {
 
         if (data != null) {
             val tvTitle = getView(R.id.tv_title) as TextView

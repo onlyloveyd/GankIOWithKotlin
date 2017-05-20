@@ -34,7 +34,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import onlyloveyd.com.gankioclient.R
-import onlyloveyd.com.gankioclient.gsonbean.ResultsBean
+import onlyloveyd.com.gankioclient.data.CategoryData
 import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.utils.PublicTools
 import onlyloveyd.com.gankioclient.utils.RxPermissionUtils
@@ -48,9 +48,9 @@ import java.io.File
  * 博   客: https://onlyloveyd.cn
  * 描   述：福利ViewHolder
  */
-class BonusViewHolder(itemView: View) : BaseViewHolder<ResultsBean>(itemView) {
+class BonusViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
 
-    override fun bindViewData(data: ResultsBean) {
+    override fun bindViewData(data: CategoryData) {
 
         if (data != null) {
             val ivPic = getView(R.id.imgPicture) as ImageView

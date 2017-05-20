@@ -22,7 +22,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.TextView
 import onlyloveyd.com.gankioclient.R
-import onlyloveyd.com.gankioclient.gsonbean.ResultsBean
+import onlyloveyd.com.gankioclient.data.CategoryData
 import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.utils.PublicTools
 import java.text.ParseException
@@ -37,9 +37,9 @@ import java.util.*
  * 博   客: https://onlyloveyd.cn
  * 描   述：单类数据ViewHolder
  */
-class DataViewHolder(itemView: View) : BaseViewHolder<ResultsBean>(itemView) {
+class DataViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
 
-    override fun bindViewData(data: ResultsBean) {
+    override fun bindViewData(data: CategoryData) {
 
         if (data != null) {
             val tvTitle = getView(R.id.tv_title) as TextView

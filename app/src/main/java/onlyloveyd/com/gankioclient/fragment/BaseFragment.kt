@@ -30,8 +30,8 @@ import cn.bingoogolapple.refreshlayout.BGARefreshLayout
 import kotlinx.android.synthetic.main.fragment_gank.*
 import onlyloveyd.com.gankioclient.R
 import onlyloveyd.com.gankioclient.adapter.MultiRecyclerAdapter
+import onlyloveyd.com.gankioclient.data.EmptyData
 import onlyloveyd.com.gankioclient.decorate.Visitable
-import onlyloveyd.com.gankioclient.gsonbean.EmptyBean
 import java.util.*
 
 /**
@@ -104,9 +104,8 @@ open class BaseFragment : Fragment(), BGARefreshLayout.BGARefreshLayoutDelegate 
      */
     fun onNetworkError() {
         mVisitableList.clear()
-        val emptyBean = EmptyBean()
-        emptyBean.message = getString(R.string.network_error)
-        mVisitableList.add(0, emptyBean)
+        val emptyData = EmptyData(getString(R.string.network_error))
+        mVisitableList.add(0, emptyData)
         mMultiRecyclerAdapter?.data = mVisitableList
     }
 
@@ -114,9 +113,8 @@ open class BaseFragment : Fragment(), BGARefreshLayout.BGARefreshLayoutDelegate 
      * 处理请求数据为空
      */
     fun onDataEmpty() {
-        val emptyBean = EmptyBean()
-        emptyBean.message = getString(R.string.empty_data)
-        mVisitableList.add(0, emptyBean)
+        val emptyData = EmptyData(getString(R.string.empty_data))
+        mVisitableList.add(0, emptyData)
     }
 
     /**

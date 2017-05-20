@@ -27,7 +27,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_gank.*
-import onlyloveyd.com.gankioclient.gsonbean.MindBean
+import onlyloveyd.com.gankioclient.data.MindData
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.io.IOException
@@ -48,7 +48,7 @@ class MindFragment : BaseFragment() {
     }
 
     fun getContent(category: String?, pagenum: Int) {
-        val observer = object : Observer<ArrayList<MindBean>> {
+        val observer = object : Observer<ArrayList<MindData>> {
             override fun onError(e: Throwable) {
                 e.printStackTrace()
                 endLoading()
@@ -63,23 +63,23 @@ class MindFragment : BaseFragment() {
 
             }
 
-            override fun onNext(mindBeanArrayList: ArrayList<MindBean>) {
+            override fun onNext(mindDataArrayList: ArrayList<MindData>) {
                 if (rl_gank_refresh.isLoadingMore()) {
                 } else {
                     mVisitableList.clear()
                 }
-                if (mindBeanArrayList.size == 0) {
+                if (mindDataArrayList.size == 0) {
                     onDataEmpty()
                 } else {
-                    mVisitableList.addAll(mindBeanArrayList)
+                    mVisitableList.addAll(mindDataArrayList)
                 }
                 mMultiRecyclerAdapter?.data = mVisitableList;
             }
         }
 
         val observable = Observable.create(
-                ObservableOnSubscribe<ArrayList<MindBean>> { emitter ->
-                    val mindBeanArrayList = ArrayList<MindBean>()
+                ObservableOnSubscribe<ArrayList<MindData>> { emitter ->
+                    val mindDataArrayList = ArrayList<MindData>()
                     try {
                         var doc: Document? = null
                         try {
@@ -90,24 +90,24 @@ class MindFragment : BaseFragment() {
 
                         val trs = doc!!.select("table").select("tr")
                         for (i in trs.indices) {
-                            val bean = MindBean()
+                            var data = MindData("","","")
                             val time = trs[i].select("td")[1]
-                            bean.time = time.text()
+                            data.time = time.text()
 
                             val detail = trs[i].select("td")[0]
                             val url = detail.select("a").attr("href")
-                            bean.url = url
-                            bean.title = detail.select("a").text()
-                            bean.author = detail.select("small").text()
-                            mindBeanArrayList.add(bean)
-                            System.err.println("yidong bean = " + bean)
+                            data.url = url
+                            data.title = detail.select("a").text()
+                            data.author = detail.select("small").text()
+                            mindDataArrayList.add(data)
+                            System.err.println("yidong data = " + data)
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
                         emitter.onError(e)
                     }
 
-                    emitter.onNext(mindBeanArrayList)
+                    emitter.onNext(mindDataArrayList)
                     emitter.onComplete()
                 })
 

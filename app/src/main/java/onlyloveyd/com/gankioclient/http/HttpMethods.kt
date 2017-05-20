@@ -23,9 +23,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
-import onlyloveyd.com.gankioclient.gsonbean.DailyBean
-import onlyloveyd.com.gankioclient.gsonbean.DataBean
-import onlyloveyd.com.gankioclient.gsonbean.SearchBean
+import onlyloveyd.com.gankioclient.data.DailyData
+import onlyloveyd.com.gankioclient.data.SearchData
+import onlyloveyd.com.gankioclient.data.TypeData
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -74,7 +74,7 @@ private constructor() {
      * *
      * @param pagenum    页码
      */
-    fun getData(subscriber: Observer<DataBean>, category: String, pagesize: String,
+    fun getData(subscriber: Observer<TypeData>, category: String, pagesize: String,
                 pagenum: Int) {
         contentService.getContent(category, pagesize, pagenum)
                 .subscribeOn(Schedulers.io())
@@ -86,7 +86,7 @@ private constructor() {
     /**
      * 查询干货数据
      */
-    fun searchData(subscriber: Observer<SearchBean>, keyword: String, category: String,
+    fun searchData(subscriber: Observer<SearchData>, keyword: String, category: String,
                    pageindex: Int) {
         contentService.search(category, keyword, pageindex)
                 .subscribeOn(Schedulers.io())
@@ -98,7 +98,7 @@ private constructor() {
     /**
      * 获取每日数据
      */
-    fun getDailyData(subscriber: Observer<DailyBean>, year: Int, month: Int, day: Int) {
+    fun getDailyData(subscriber: Observer<DailyData>, year: Int, month: Int, day: Int) {
         contentService.getDaily(year, month, day)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())

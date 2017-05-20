@@ -2,9 +2,9 @@ package onlyloveyd.com.gankioclient.http
 
 import io.reactivex.Observable
 import okhttp3.ResponseBody
-import onlyloveyd.com.gankioclient.gsonbean.DailyBean
-import onlyloveyd.com.gankioclient.gsonbean.DataBean
-import onlyloveyd.com.gankioclient.gsonbean.SearchBean
+import onlyloveyd.com.gankioclient.data.DailyData
+import onlyloveyd.com.gankioclient.data.SearchData
+import onlyloveyd.com.gankioclient.data.TypeData
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Url
@@ -26,13 +26,13 @@ interface ContentService {
     @GET("data/{category}/{pagesize}/{pagenum}")
     fun getContent(
             @Path("category") category: String, @Path("pagesize") pagesize: String,
-            @Path("pagenum") pagenum: Int): Observable<DataBean>
+            @Path("pagenum") pagenum: Int): Observable<TypeData>
 
     /**
      * 获取某天的干货
      */
     @GET("day/{date}")
-    fun getRecentlyGanHuo(@Path("date") date: String): Observable<DataBean>
+    fun getRecentlyGanHuo(@Path("date") date: String): Observable<TypeData>
 
     /**
      * 搜索
@@ -40,11 +40,11 @@ interface ContentService {
     @GET("search/query/{keyword}/category/{category}/count/20/page/{pageIndex}")
     fun search(@Path("category") category: String,
                @Path("keyword") keyword: String,
-               @Path("pageIndex") pageIndex: Int): Observable<SearchBean>
+               @Path("pageIndex") pageIndex: Int): Observable<SearchData>
 
     @GET("history/content/10/{pageIndex}")
     fun getRecently(
-            @Path("pageIndex") pageIndex: Int): Observable<DataBean>
+            @Path("pageIndex") pageIndex: Int): Observable<TypeData>
 
     /**
      * @param year  year
@@ -57,7 +57,7 @@ interface ContentService {
     </GankDaily> */
     @GET("day/{year}/{month}/{day}")
     fun getDaily(@Path("year") year: Int,
-                 @Path("month") month: Int, @Path("day") day: Int): Observable<DailyBean>
+                 @Path("month") month: Int, @Path("day") day: Int): Observable<DailyData>
 
     @GET
     fun downloadUrl(@Url url: String): Observable<ResponseBody>

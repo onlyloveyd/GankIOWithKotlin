@@ -25,7 +25,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 
 import onlyloveyd.com.gankioclient.R
-import onlyloveyd.com.gankioclient.gsonbean.DailyBean
+import onlyloveyd.com.gankioclient.data.DetailsData
 import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.utils.PublicTools
 
@@ -38,38 +38,38 @@ import onlyloveyd.com.gankioclient.utils.PublicTools
  * 博   客: https://onlyloveyd.cn
  * 描   述：每日干货ViewHolder
  */
-class DailyViewHolder(itemView: View) : BaseViewHolder<DailyBean.ResultsBean.DetailsBean>(itemView) {
+class DailyViewHolder(itemView: View) : BaseViewHolder<DetailsData>(itemView) {
 
-    override fun bindViewData(data: DailyBean.ResultsBean.DetailsBean) {
+    override fun bindViewData(data: DetailsData) {
         if (data != null) {
             val ivDaily = getView(R.id.iv_daily) as ImageView
             val tvTitleDaily = getView(R.id.tv_title_daily) as TextView
             val tvTypeDaily = getView(R.id.tv_type_daily) as TextView
             val tvDateDaily = getView(R.id.tv_date_daily) as TextView
 
-            tvTitleDaily.setText(data!!.getDesc().trim({ it <= ' ' }))
-            tvDateDaily.text = PublicTools.date2String(data!!.getPublishedAt().getTime(), "yyyy.MM.dd")
+            tvTitleDaily.setText(data.desc.trim({ it <= ' ' }))
+            tvDateDaily.text = PublicTools.date2String(data.publishedAt.getTime(), "yyyy.MM.dd")
 
-            if (data!!.getImages() != null && data!!.getImages().size > 0) {
+            if (data.images != null && data.images.size > 0) {
                 Glide.with(itemView.context)
-                        .load(data!!.getImages().get(0))
+                        .load(data.images.get(0))
                         .placeholder(R.mipmap.img_default_gray)
                         .into(ivDaily)
             } else {
-                if (data!!.getType() == "福利") {
+                if (data.type == "福利") {
                     Glide.with(itemView.context)
-                            .load(data!!.getUrl())
+                            .load(data.url)
                             .placeholder(R.mipmap.img_default_gray)
                             .into(ivDaily)
                 } else {
                     ivDaily.visibility = View.GONE
                 }
             }
-            val type = data!!.getType()
+            val type = data.type
             tvTypeDaily.setText(type)
             Constant.sTypeColor[type]?.let { tvTypeDaily.setBackgroundResource(it) }
 
-            itemView.setOnClickListener { PublicTools.startWebActivity(itemView.context, data!!.getUrl()) }
+            itemView.setOnClickListener { PublicTools.startWebActivity(itemView.context, data.url) }
         }
 
     }

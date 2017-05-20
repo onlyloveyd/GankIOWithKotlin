@@ -19,11 +19,8 @@
 package onlyloveyd.com.gankioclient.factory
 
 import android.view.View
+import onlyloveyd.com.gankioclient.data.*
 
-import onlyloveyd.com.gankioclient.gsonbean.DailyBean
-import onlyloveyd.com.gankioclient.gsonbean.EmptyBean
-import onlyloveyd.com.gankioclient.gsonbean.MindBean
-import onlyloveyd.com.gankioclient.gsonbean.ResultsBean
 import onlyloveyd.com.gankioclient.viewholder.BaseViewHolder
 
 /**
@@ -35,13 +32,14 @@ import onlyloveyd.com.gankioclient.viewholder.BaseViewHolder
  * 描   述：MultiType数据工厂接口
  */
 interface TypeFactory {
-    fun type(dailyBean: DailyBean.ResultsBean.DetailsBean): Int
+    fun type(detailsData: DetailsData):Int
+    fun type(categoryData: CategoryData):Int
+    fun type(emptyData: EmptyData):Int
+    fun type(mindData : MindData):Int
 
-    fun type(resultsBean: ResultsBean): Int
 
-    fun type(emptyBean: EmptyBean): Int
 
-    fun type(mindBean: MindBean): Int
+
 
     fun createViewHolder(type: Int, itemView: View): BaseViewHolder<*>
 }
