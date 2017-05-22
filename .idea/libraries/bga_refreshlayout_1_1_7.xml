@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="bga-refreshlayout-1.1.7">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/80927bc026a1cbb25cd43cb00420d0661a9fe340/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/80927bc026a1cbb25cd43cb00420d0661a9fe340/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/6500842ba92aff4c61751863ac412853d8cfc38d/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/6500842ba92aff4c61751863ac412853d8cfc38d/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

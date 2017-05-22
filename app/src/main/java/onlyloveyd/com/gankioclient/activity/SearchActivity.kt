@@ -59,7 +59,6 @@ class SearchActivity : AppCompatActivity(), BGARefreshLayout.BGARefreshLayoutDel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        ButterKnife.bind(this)
         setSupportActionBar(tl_search)
         tl_search.setNavigationIcon(R.drawable.back)
 
