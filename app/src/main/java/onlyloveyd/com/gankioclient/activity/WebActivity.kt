@@ -20,8 +20,6 @@ package onlyloveyd.com.gankioclient.activity
 
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -32,9 +30,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import butterknife.ButterKnife
 import kotlinx.android.synthetic.main.activity_web.*
 import onlyloveyd.com.gankioclient.R
+import org.jetbrains.anko.browse
+import org.jetbrains.anko.share
 
 /**
  * 文 件 名: WebActivity
@@ -51,7 +50,6 @@ class WebActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
-        ButterKnife.bind(this)
 
         val intent = intent
         val bundle = intent.extras
@@ -72,17 +70,17 @@ class WebActivity : AppCompatActivity() {
 
     public override fun onPause() {
         super.onPause()
-        if (wv_content != null) wv_content.onPause()
+        wv_content?.let { it.onPause() }
     }
 
     public override fun onResume() {
         super.onResume()
-        if (wv_content != null) wv_content.onResume()
+        wv_content?.let { it.onResume() }
     }
 
     public override fun onDestroy() {
         super.onDestroy()
-        if (wv_content != null) wv_content.destroy()
+        wv_content?.let { it.destroy() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -96,17 +94,10 @@ class WebActivity : AppCompatActivity() {
                 finish()
             }
             R.id.share -> {//share url with system share windows
-                val intent = Intent()
-                intent.action = Intent.ACTION_SEND
-                intent.type = "text/plain"
-                intent.putExtra(Intent.EXTRA_TEXT, URL)
-                startActivity(Intent.createChooser(intent, title))
+                URL?.let { share(it) }
             }
             R.id.openinbrowse -> {
-                val intent = Intent()
-                intent.action = Intent.ACTION_VIEW
-                intent.data = Uri.parse(URL)
-                startActivity(intent)
+                URL?.let { browse(it) }
             }
             R.id.copyurl -> {
                 val clipboardManager = getSystemService(
@@ -134,11 +125,11 @@ class WebActivity : AppCompatActivity() {
         wv_content.setWebChromeClient(object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
                 super.onProgressChanged(view, newProgress)
-                progressbar!!.progress = newProgress
+                progressbar.progress = newProgress
                 if (newProgress == 100) {
-                    progressbar!!.visibility = View.GONE
+                    progressbar.visibility = View.GONE
                 } else {
-                    progressbar!!.visibility = View.VISIBLE
+                    progressbar.visibility = View.VISIBLE
                 }
             }
 
@@ -150,7 +141,7 @@ class WebActivity : AppCompatActivity() {
         })
         wv_content.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
-                if (url != null) view.loadUrl(url)
+                url?.let { view.loadUrl(it) }
                 return true
             }
         })

@@ -49,7 +49,6 @@ class OrderActivity : AppCompatActivity(), OnStartDragListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sort)
-        ButterKnife.bind(this)
 
         setSupportActionBar(tl_sort)
         tl_sort.setNavigationIcon(R.drawable.back)

@@ -38,6 +38,7 @@ import onlyloveyd.com.gankioclient.data.CategoryData
 import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.utils.PublicTools
 import onlyloveyd.com.gankioclient.utils.RxPermissionUtils
+import org.jetbrains.anko.toast
 import java.io.File
 
 /**
@@ -57,7 +58,7 @@ class BonusViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
             val ibDownload = getView(R.id.ib_download) as ImageButton
             Glide.with(itemView.context).load(data.url).into(ivPic)
 
-            val rxPermissions = RxPermissionUtils.getInstance()
+            val rxPermissions = RxPermissionUtils.instance
             ibDownload.setOnClickListener {
                 if (rxPermissions != null) {
                     rxPermissions
@@ -70,9 +71,8 @@ class BonusViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
                                 override fun onNext(granted: Boolean?) {
                                     if (granted!!) { // Always true pre-M
                                         // I can control the camera now
-                                        Toast.makeText(itemView.context, data.desc +
-                                                Constant.SUFFIX_JPEG + "开始下载",
-                                                Toast.LENGTH_SHORT).show()
+                                        itemView.context.toast(data.desc +
+                                                Constant.SUFFIX_JPEG + "开始下载")
                                         Glide.with(itemView.context).load(
                                                 data.url).asBitmap().into(
                                                 object : SimpleTarget<Bitmap>() {
@@ -92,24 +92,20 @@ class BonusViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
 
                                                             override fun onError(
                                                                     e: Throwable) {
-                                                                Toast.makeText(
-                                                                        itemView.context,
-                                                                        data.desc +
-                                                                                Constant.SUFFIX_JPEG
-                                                                                +
-                                                                                "下载失败",
-                                                                        Toast.LENGTH_SHORT).show()
+
+                                                                itemView.context.toast(data.desc +
+                                                                        Constant.SUFFIX_JPEG
+                                                                        +
+                                                                        "下载失败")
                                                                 e.printStackTrace()
                                                             }
 
                                                             override fun onComplete() {
-                                                                Toast.makeText(
-                                                                        itemView.context,
-                                                                        data.desc +
-                                                                                Constant.SUFFIX_JPEG
-                                                                                +
-                                                                                "下载成功",
-                                                                        Toast.LENGTH_SHORT).show()
+
+                                                                itemView.context.toast(data.desc +
+                                                                        Constant.SUFFIX_JPEG
+                                                                        +
+                                                                        "下载成功")
                                                             }
                                                         }
 
@@ -140,8 +136,7 @@ class BonusViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
                                                     }
                                                 })
                                     } else {
-                                        Toast.makeText(itemView.context, "请在设置中开启存储权限后再试",
-                                                Toast.LENGTH_SHORT).show()
+                                        itemView.context.toast("请在设置中开启存储权限后再试")
                                     }
                                 }
 

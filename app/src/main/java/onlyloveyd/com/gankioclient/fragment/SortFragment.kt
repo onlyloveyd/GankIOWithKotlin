@@ -83,9 +83,7 @@ class SortFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        if (vp_view != null) {
-            mCurrentTag = Constant.sCategoryList[vp_view.currentItem]
-        }
+        vp_view?.let { mCurrentTag = Constant.sCategoryList[it.currentItem] }
         Constant.sCategryListChanged = false
     }
 

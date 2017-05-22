@@ -48,7 +48,5 @@ class GankAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         }
     }
 
-    override fun getCount(): Int {
-        return Constant.sTabTitles.size
-    }
+    override fun getCount(): Int = Constant.sTabTitles.size
 }

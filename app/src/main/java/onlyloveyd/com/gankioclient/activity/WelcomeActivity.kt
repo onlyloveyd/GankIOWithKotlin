@@ -18,7 +18,6 @@
  */
 package onlyloveyd.com.gankioclient.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
@@ -29,6 +28,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_welcome.*
 import onlyloveyd.com.gankioclient.R
+import org.jetbrains.anko.startActivity
 import java.util.concurrent.TimeUnit
 
 /**
@@ -70,9 +70,6 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun directToHome() {
-        val intent = Intent()
-        intent.setClass(this@WelcomeActivity, GankActivity::class.java)
-        startActivity(intent)
-        finish()
+        startActivity<GankActivity>()
     }
 }

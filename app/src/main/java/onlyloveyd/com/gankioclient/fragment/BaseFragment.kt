@@ -95,9 +95,7 @@ open class BaseFragment : Fragment(), BGARefreshLayout.BGARefreshLayoutDelegate 
 
     }
 
-    override fun onBGARefreshLayoutBeginLoadingMore(refreshLayout: BGARefreshLayout): Boolean {
-        return false
-    }
+    override fun onBGARefreshLayoutBeginLoadingMore(refreshLayout: BGARefreshLayout): Boolean = false
 
     /**
      * 处理网络请求错误
@@ -121,7 +119,7 @@ open class BaseFragment : Fragment(), BGARefreshLayout.BGARefreshLayoutDelegate 
      * 停止刷新或者加载更多
      */
     fun endLoading() {
-        if (rl_gank_refresh != null) {
+        rl_gank_refresh?.let {
             if (rl_gank_refresh.isLoadingMore) {
                 rl_gank_refresh.endLoadingMore()
             } else {

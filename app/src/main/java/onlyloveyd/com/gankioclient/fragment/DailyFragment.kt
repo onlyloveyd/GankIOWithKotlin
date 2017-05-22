@@ -70,30 +70,14 @@ class DailyFragment : BaseFragment(), OnDatePickedListener {
                 if (dailyData.category == null || dailyData.category.size == 0) {
                     onDataEmpty()
                 } else {
-                    if (dailyData.results.android != null) {
-                        mVisitableList.addAll(dailyData.results.android)
-                    }
-                    if (dailyData.results.app != null) {
-                        mVisitableList.addAll(dailyData.results.app)
-                    }
-                    if (dailyData.results.bonus != null) {
-                        mVisitableList.addAll(dailyData.results.bonus)
-                    }
-                    if (dailyData.results.ios != null) {
-                        mVisitableList.addAll(dailyData.results.ios)
-                    }
-                    if (dailyData.results.js != null) {
-                        mVisitableList.addAll(dailyData.results.js)
-                    }
-                    if (dailyData.results.rec != null) {
-                        mVisitableList.addAll(dailyData.results.rec)
-                    }
-                    if (dailyData.results.res != null) {
-                        mVisitableList.addAll(dailyData.results.res)
-                    }
-                    if (dailyData.results.video != null) {
-                        mVisitableList.addAll(dailyData.results.video)
-                    }
+                    dailyData.results.android?.let { mVisitableList.addAll(it) }
+                    dailyData.results.app?.let { mVisitableList.addAll(it) }
+                    dailyData.results.bonus?.let { mVisitableList.addAll(it) }
+                    dailyData.results.ios?.let { mVisitableList.addAll(it) }
+                    dailyData.results.js?.let { mVisitableList.addAll(it) }
+                    dailyData.results.rec?.let { mVisitableList.addAll(it) }
+                    dailyData.results.res?.let { mVisitableList.addAll(it) }
+                    dailyData.results.video?.let { mVisitableList.addAll(it) }
                 }
                 mMultiRecyclerAdapter?.data = mVisitableList;
             }

@@ -24,7 +24,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import android.widget.ArrayAdapter
-import butterknife.ButterKnife
 import butterknife.OnClick
 import butterknife.OnTextChanged
 import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder

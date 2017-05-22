@@ -14,13 +14,9 @@ import onlyloveyd.com.gankioclient.utils.Constant
  */
 class BonusFragment : GankFragment() {
 
-    override fun initBGAData() {
-        rl_gank_refresh.beginRefreshing()
-    }
+    override fun initBGAData():Unit = rl_gank_refresh.beginRefreshing()
 
-    override fun onBGARefreshLayoutBeginRefreshing(refreshLayout: BGARefreshLayout) {
-        getContent(Constant.BONUS, 1)
-    }
+    override fun onBGARefreshLayoutBeginRefreshing(refreshLayout: BGARefreshLayout):Unit=getContent(Constant.BONUS, 1)
 
     override fun onBGARefreshLayoutBeginLoadingMore(refreshLayout: BGARefreshLayout): Boolean {
         getContent(Constant.BONUS, ++pagenum)

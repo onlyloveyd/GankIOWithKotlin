@@ -37,9 +37,5 @@ interface TypeFactory {
     fun type(emptyData: EmptyData):Int
     fun type(mindData : MindData):Int
 
-
-
-
-
     fun createViewHolder(type: Int, itemView: View): BaseViewHolder<*>
 }

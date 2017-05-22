@@ -79,9 +79,7 @@ class OrderAdapter(private val mContext: Context, private val mDragStartListener
         return true
     }
 
-    override fun getItemCount(): Int {
-        return Constant.sCategoryList.size
-    }
+    override fun getItemCount(): Int = Constant.sCategoryList.size
 
     /**
      * Simple example of a view holder that implements [ItemTouchHelperViewHolder] and has a

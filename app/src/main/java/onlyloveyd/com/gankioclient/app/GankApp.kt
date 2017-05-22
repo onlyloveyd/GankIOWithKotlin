@@ -45,8 +45,4 @@ class GankApp : Application() {
         LeakCanary.install(this)
         // Normal app init code...
     }
-
-    override fun onTerminate() {
-        super.onTerminate()
-    }
 }

@@ -22,7 +22,6 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -36,6 +35,7 @@ import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.utils.PublicTools
 import onlyloveyd.com.gankioclient.utils.RxPermissionUtils
 import onlyloveyd.com.gankioclient.view.TabEntity
+import org.jetbrains.anko.alert
 import java.util.*
 
 /**
@@ -105,10 +105,6 @@ class GankActivity : AppCompatActivity() {
         })
         PublicTools.checkUpdate(this, true)
         RxPermissionUtils.createInstance(this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -191,13 +187,12 @@ class GankActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        AlertDialog.Builder(this)
-                .setTitle("提示")
-                .setMessage("确认要退出吗？")
-                .setPositiveButton("取消") { dialog, which -> dialog.dismiss() }
-                .setNegativeButton("确认") { dialog, which ->
-                    dialog.dismiss()
-                    finish()
-                }.show()
+        alert("提示", "确认要退出嘛？") {
+            positiveButton("取消") { dialog -> dialog.dismiss() }
+            negativeButton("确认") { dialog ->
+                dialog.dismiss()
+                finish()
+            }
+        }.show()
     }
 }

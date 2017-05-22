@@ -1,6 +1,5 @@
 package onlyloveyd.com.gankioclient.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +9,7 @@ import com.vansuita.materialabout.builder.AboutBuilder
 import onlyloveyd.com.gankioclient.R
 import onlyloveyd.com.gankioclient.utils.Constant
 import onlyloveyd.com.gankioclient.utils.PublicTools
+import org.jetbrains.anko.share
 
 /**
  * 文 件 名: AboutFragment
@@ -23,11 +23,6 @@ class AboutFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val intent = Intent()
-        intent.action = Intent.ACTION_SEND
-        intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT, Constant.APP_FIR_IM_URL)
-
 
         val view = AboutBuilder.with(context)
                 .setPhoto(R.mipmap.ic_launcher)
@@ -44,8 +39,8 @@ class AboutFragment : Fragment() {
                 //                .addFiveStarsAction()
                 .setVersionNameAsAppSubTitle()
                 .addAction(com.vansuita.materialabout.R.mipmap.share,
-                        com.vansuita.materialabout.R.string.share_app, Intent.createChooser(intent,
-                        getString(com.vansuita.materialabout.R.string.share_app)))
+                        com.vansuita.materialabout.R.string.share_app,
+                        View.OnClickListener { context.share(Constant.APP_FIR_IM_URL) })
                 .addAction(com.vansuita.materialabout.R.mipmap.update,
                         com.vansuita.materialabout.R.string.update_app) { PublicTools.checkUpdate(context, false) }
                 .setWrapScrollView(true)
@@ -58,7 +53,6 @@ class AboutFragment : Fragment() {
     companion object {
 
         fun newInstance(): AboutFragment {
-
             val args = Bundle()
             val fragment = AboutFragment()
             fragment.arguments = args

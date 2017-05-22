@@ -19,10 +19,8 @@
 package onlyloveyd.com.gankioclient.utils
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
 import android.util.Log
 import android.view.View
@@ -39,6 +37,9 @@ import onlyloveyd.com.gankioclient.http.UpdateManager
 import onlyloveyd.com.gankioclient.utils.Constant.ONE_DAY
 import onlyloveyd.com.gankioclient.utils.Constant.ONE_HOUR
 import onlyloveyd.com.gankioclient.utils.Constant.ONE_MINUTE
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -93,27 +94,16 @@ object PublicTools {
      * *
      * @return String
      */
-    fun date2String(time: Long, format: String): String {
-        val sdf = SimpleDateFormat(format)
-        return sdf.format(time)
-    }
+    fun date2String(time: Long, format: String): String = SimpleDateFormat(format).format(time)
+
 
     /**
      * start WebActivity
      */
     fun startWebActivity(context: Context, url: String) {
-        context.startActivity(getWebIntent(context, url))
+        context.startActivity<WebActivity>("URL" to url);
     }
 
-    /**
-     * get intent by url
-     */
-    fun getWebIntent(context: Context, url: String): Intent {
-        val intent = Intent()
-        intent.setClass(context, WebActivity::class.java)
-        intent.putExtra("URL", url)
-        return intent
-    }
 
     /**
      * hide keyboard
@@ -185,26 +175,21 @@ object PublicTools {
                 val versionData = gson.fromJson(versionJson, VersionData::class.java)
                 if (BuildConfig.VERSION_NAME == versionData.versionShort) {
                     if (!auto) {
-                        Toast.makeText(context, "当前已经是最新版本", Toast.LENGTH_SHORT).show()
+                        context.toast("当前已经是最新版本")
                     }
                 } else {
-                    AlertDialog.Builder(context).setTitle(
-                            context.getString(R.string.version_update,
-                                    versionData.versionShort))
-                            .setMessage("更新日志：\n" + versionData.changelog)
-                            .setPositiveButton("下载") { dialog, which ->
-                                //                                    Intent intent = new Intent();
-                                //                                    intent.setAction(Intent.ACTION_VIEW);
-                                //                                    intent.setData(Uri.parse(Constant.APP_FIR_IM_URL));
-                                //                                    context.startActivity(intent);
-                                val updateManager = UpdateManager(context)
-                                updateManager.setDownUrl(
-                                        Constant.GITHUB_LATEST_APK)
-                                updateManager.setApkName(versionData.name + versionData.versionShort + ".apk")
-                                updateManager.showDownloadDialog()
-                            }
-                            .setNegativeButton("取消") { dialog, which -> dialog.dismiss() }
-                            .show()
+                    context.alert("更新日志：\n" + versionData.changelog, context.getString(R.string.version_update,
+                            versionData.versionShort)) {
+                        positiveButton("下载") { dialog ->
+                            val updateManager = UpdateManager(context)
+                            updateManager.setDownUrl(
+                                    Constant.GITHUB_LATEST_APK)
+                            updateManager.setApkName(versionData.name + versionData.versionShort + ".apk")
+                            updateManager.showDownloadDialog()
+                        }
+                        negativeButton("取消") { dialog -> dialog.dismiss() }
+
+                    }.show()
                 }
 
             }
@@ -214,7 +199,7 @@ object PublicTools {
                     exception!!.printStackTrace()
                 }
                 loadingDialog.hide()
-                Toast.makeText(context, "检查更新出现错误", Toast.LENGTH_SHORT).show()
+                context.toast("检查更新出现错误")
             }
 
             override fun onStart() {

@@ -36,8 +36,6 @@ class EmptyViewHolder(itemView: View) : BaseViewHolder<EmptyData>(itemView) {
 
     override fun bindViewData(data: EmptyData) {
         val textView = getView(R.id.tv_empty) as TextView
-        if (textView != null) {
-            textView.text = data.message
-        }
+        textView?.let { it.text=data.message }
     }
 }
