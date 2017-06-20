@@ -3,48 +3,57 @@
 
     <item
         is-multidex="true"
-        jar="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="f2731efcb2883fb5d4f692f77cbb640204de74ec">
-        <dex dex="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e492e51eb47d13c323ab7ec9b997d43977cc047c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e71ae110620ca1a96cf9058f4d1e4f87fb3dea46/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/gs/.gradle/caches/modules-2/files-2.1/org.jetbrains.anko/anko-commons/0.10.0/3de0694cacc8fb6f118091c7ae1ec6540047ed0d/anko-commons-0.10.0.jar"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.jetbrains.anko\anko-commons\0.10.0\3de0694cacc8fb6f118091c7ae1ec6540047ed0d\anko-commons-0.10.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="3de0694cacc8fb6f118091c7ae1ec6540047ed0d">
-        <dex dex="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/anko-commons-0.10.0_5b485460307c85e43a5aafb7e641139d84beccaf/classes.dex" />
+        <dex dex="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\transforms\dex\debug\folders\1000\10\anko-commons-0.10.0_66c687f791f8eb6b0a07600541d6da2c05fb5527\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/libs/jsoup-1.10.2.jar"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\transforms\dex\debug\folders\1000\10\annotations-13.0_30acb89639896b8d1cd94a7b9c1ad5f85403b992\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1f4c7a6de4bf017e46177405252fe0fb9ee1c272\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\GitTrunk\GankIOWithKotlin\app\libs\jsoup-1.10.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="61f84a97f1a4f5905547b8b74afff8dc93f4cfce">
-        <dex dex="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_15e4d12cf39986e271a9ff21289999c08e29b9d2/classes.dex" />
+        <dex dex="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\transforms\dex\debug\folders\1000\2\jsoup-1.10.2_653b686e89e81ebae1a61072300cb50f152e5cbf\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/gs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.2/109c63008b2d569e38696a3178ee2493b0f6c776/kotlin-stdlib-1.1.2.jar"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.1.2\109c63008b2d569e38696a3178ee2493b0f6c776\kotlin-stdlib-1.1.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="109c63008b2d569e38696a3178ee2493b0f6c776">
-        <dex dex="/Users/gs/AndroidStudioProjects/GankIOWithKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-1.1.2_fc827f99afc6e20fc9957baa13f0050fcf656790/classes.dex" />
+        <dex dex="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\transforms\dex\debug\folders\1000\10\kotlin-stdlib-1.1.2_6be5317f9af2b94de4119aee52abdd8dce2cf6e2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c48439d143121e9126373089a20571dab6e95f5c">
+        <dex dex="F:\GitTrunk\GankIOWithKotlin\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_49ec3ac2b0763036f8491ea0758a8fe0f3e68274\classes.dex" />
     </item>
 
 </items>

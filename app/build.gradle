@@ -31,15 +31,22 @@ android {
             zipAlignEnabled true // 开启压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            applicationVariants.all { variant ->
+            android.applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     def outputFile = output.outputFile
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        def fileName = "Gankio_${defaultConfig.versionName}_${releaseTime()}_${defaultConfig.name}.apk"
-                        output.outputFile = new File(outputFile.parent, fileName)
+                        File outputDirectory = new File(outputFile.parent);
+                        def fileName
+                        if (variant.buildType.name == "release") {
+                            fileName = "GankIOWithKotlin_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                        } else {
+                            fileName = "GankIOWithKotlin_v${defaultConfig.versionName}_${releaseTime()}_debug.apk"
+                        }
+                        output.outputFile = new File(outputDirectory, fileName)
                     }
                 }
             }
+
             buildConfigField("boolean", "YLog", "false");
         }
     }
