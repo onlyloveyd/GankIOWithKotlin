@@ -21,8 +21,7 @@ import org.jetbrains.anko.share
  */
 class AboutFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = AboutBuilder.with(context)
                 .setPhoto(R.mipmap.ic_launcher)
@@ -40,9 +39,9 @@ class AboutFragment : Fragment() {
                 .setVersionNameAsAppSubTitle()
                 .addAction(com.vansuita.materialabout.R.mipmap.share,
                         com.vansuita.materialabout.R.string.share_app,
-                        View.OnClickListener { context.share(Constant.APP_FIR_IM_URL) })
-                .addAction(com.vansuita.materialabout.R.mipmap.update,
-                        com.vansuita.materialabout.R.string.update_app) { PublicTools.checkUpdate(context, false) }
+                        View.OnClickListener { context?.share(Constant.APP_FIR_IM_URL) })
+//                .addAction(com.vansuita.materialabout.R.mipmap.update,
+//                        com.vansuita.materialabout.R.string.update_app) { PublicTools.checkUpdate(context, false) }
                 .setWrapScrollView(true)
                 .setLinksAnimated(true)
                 .setShowAsCard(true)

@@ -46,15 +46,14 @@ class SortFragment : Fragment() {
         super.setUserVisibleHint(isVisibleToUser)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_sort, null, false)
 
         return view
     }
 
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tabAdapter = TabAdapter(childFragmentManager)
         vp_view.adapter = tabAdapter

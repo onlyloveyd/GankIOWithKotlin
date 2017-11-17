@@ -25,10 +25,7 @@ import android.graphics.Bitmap
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import com.google.gson.Gson
-import im.fir.sdk.FIR
-import im.fir.sdk.VersionCheckCallback
 import onlyloveyd.com.gankioclient.BuildConfig
 import onlyloveyd.com.gankioclient.R
 import onlyloveyd.com.gankioclient.activity.WebActivity
@@ -153,69 +150,69 @@ object PublicTools {
 
     }
 
-
-    /**
-     * 检查更新
-     */
-    fun checkUpdate(context: Context, auto: Boolean) {
-
-        val loadingDialog = ProgressDialog(context)
-        loadingDialog.isIndeterminate = true
-        loadingDialog.setTitle("提示")
-        loadingDialog.setMessage("正在检测新版本...")
-        loadingDialog.setCancelable(false)
-
-        FIR.checkForUpdateInFIR(Constant.FIR_API_TOKEN, object : VersionCheckCallback() {
-            override fun onSuccess(versionJson: String?) {
-                loadingDialog.hide()
-                if (BuildConfig.YLog) {
-                    Log.i("yidong", "check from fir.im success! " + "\n" + versionJson)
-                }
-                val gson = Gson()
-                val versionData = gson.fromJson(versionJson, VersionData::class.java)
-                if (BuildConfig.VERSION_NAME == versionData.versionShort) {
-                    if (!auto) {
-                        context.toast("当前已经是最新版本")
-                    }
-                } else {
-                    context.alert("更新日志：\n" + versionData.changelog, context.getString(R.string.version_update,
-                            versionData.versionShort)) {
-                        positiveButton("下载") { dialog ->
-                            val updateManager = UpdateManager(context)
-                            updateManager.setDownUrl(
-                                    Constant.GITHUB_LATEST_APK)
-                            updateManager.setApkName(versionData.name + versionData.versionShort + ".apk")
-                            updateManager.showDownloadDialog()
-                        }
-                        negativeButton("取消") { dialog -> dialog.dismiss() }
-
-                    }.show()
-                }
-
-            }
-
-            override fun onFail(exception: Exception?) {
-                if (BuildConfig.YLog) {
-                    exception!!.printStackTrace()
-                }
-                loadingDialog.hide()
-                context.toast("检查更新出现错误")
-            }
-
-            override fun onStart() {
-                if (BuildConfig.YLog) {
-                    Log.i("yidong", "onStart " + "\n")
-                }
-                if (!auto) {
-                    loadingDialog.show()
-                }
-            }
-
-            override fun onFinish() {
-                if (BuildConfig.YLog) {
-                    Log.i("yidong", "onFinish")
-                }
-            }
-        })
-    }
+//
+//    /**
+//     * 检查更新
+//     */
+//    fun checkUpdate(context: Context, auto: Boolean) {
+//
+//        val loadingDialog = ProgressDialog(context)
+//        loadingDialog.isIndeterminate = true
+//        loadingDialog.setTitle("提示")
+//        loadingDialog.setMessage("正在检测新版本...")
+//        loadingDialog.setCancelable(false)
+//
+//        FIR.checkForUpdateInFIR(Constant.FIR_API_TOKEN, object : VersionCheckCallback() {
+//            override fun onSuccess(versionJson: String?) {
+//                loadingDialog.hide()
+//                if (BuildConfig.YLog) {
+//                    Log.i("yidong", "check from fir.im success! " + "\n" + versionJson)
+//                }
+//                val gson = Gson()
+//                val versionData = gson.fromJson(versionJson, VersionData::class.java)
+//                if (BuildConfig.VERSION_NAME == versionData.versionShort) {
+//                    if (!auto) {
+//                        context.toast("当前已经是最新版本")
+//                    }
+//                } else {
+//                    context.alert("更新日志：\n" + versionData.changelog, context.getString(R.string.version_update,
+//                            versionData.versionShort)) {
+//                        positiveButton("下载") { dialog ->
+//                            val updateManager = UpdateManager(context)
+//                            updateManager.setDownUrl(
+//                                    Constant.GITHUB_LATEST_APK)
+//                            updateManager.setApkName(versionData.name + versionData.versionShort + ".apk")
+//                            updateManager.showDownloadDialog()
+//                        }
+//                        negativeButton("取消") { dialog -> dialog.dismiss() }
+//
+//                    }.show()
+//                }
+//
+//            }
+//
+//            override fun onFail(exception: Exception?) {
+//                if (BuildConfig.YLog) {
+//                    exception!!.printStackTrace()
+//                }
+//                loadingDialog.hide()
+//                context.toast("检查更新出现错误")
+//            }
+//
+//            override fun onStart() {
+//                if (BuildConfig.YLog) {
+//                    Log.i("yidong", "onStart " + "\n")
+//                }
+//                if (!auto) {
+//                    loadingDialog.show()
+//                }
+//            }
+//
+//            override fun onFinish() {
+//                if (BuildConfig.YLog) {
+//                    Log.i("yidong", "onFinish")
+//                }
+//            }
+//        })
+//    }
 }

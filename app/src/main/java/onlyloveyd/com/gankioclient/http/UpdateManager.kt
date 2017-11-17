@@ -78,7 +78,7 @@ class UpdateManager(private val mContext: Context) {
         // 给下载对话框增加进度条
         val inflater = LayoutInflater.from(mContext)
         val v = inflater.inflate(R.layout.dialog_update_progress, null)
-        mProgress = v.findViewById(R.id.update_progress) as ProgressBar
+        mProgress = v.findViewById(R.id.update_progress)
         builder.setView(v)
         // 取消更新
         builder.setNegativeButton("取消更新") { dialog, which ->

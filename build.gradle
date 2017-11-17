@@ -2,19 +2,20 @@
 
 buildscript {
 
-    ext.support_version = '25.3.1'
-    ext.kotlin_version = '1.1.2'
+    ext.support_version = '27.0.1'
+    ext.kotlin_version = '1.1.60'
     ext.anko_version = '0.10.0'
-    ext.butterknife_version='8.4.0'
+    ext.butterknife_version='8.8.1'
 
 
     repositories {
         jcenter()
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         maven { url "https://jitpack.io" }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -29,6 +30,7 @@ allprojects {
         maven {
             url "http://maven.bughd.com/public"
         }
+        google()
     }
 }
 

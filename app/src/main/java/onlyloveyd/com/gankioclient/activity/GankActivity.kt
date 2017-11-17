@@ -36,6 +36,7 @@ import onlyloveyd.com.gankioclient.utils.PublicTools
 import onlyloveyd.com.gankioclient.utils.RxPermissionUtils
 import onlyloveyd.com.gankioclient.view.TabEntity
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.toast
 import java.util.*
 
 /**
@@ -56,6 +57,11 @@ class GankActivity : AppCompatActivity() {
     private val mIconUnselectIds = intArrayOf(R.mipmap.tab_daily_unselect, R.mipmap.tab_sort_unselect, R.mipmap.tab_bonus_unselect, R.mipmap.tab_about_unselect)
     private val mIconSelectIds = intArrayOf(R.mipmap.tab_daily_select, R.mipmap.tab_sort_select, R.mipmap.tab_bonus_select, R.mipmap.tab_about_select)
     private val mTabEntities = ArrayList<CustomTabEntity>()
+
+    /**
+     * 再次返回键退出程序
+     */
+    private var lastBack: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,7 +109,7 @@ class GankActivity : AppCompatActivity() {
 
             }
         })
-        PublicTools.checkUpdate(this, true)
+        //PublicTools.checkUpdate(this, true)
         RxPermissionUtils.createInstance(this)
     }
 
@@ -171,7 +177,7 @@ class GankActivity : AppCompatActivity() {
 
         DatePickerDialog(this@GankActivity,
                 // 绑定监听器
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                     Constant.YEAR = year
                     Constant.MONTH = month
                     Constant.DAY = dayOfMonth
@@ -187,12 +193,11 @@ class GankActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        alert("提示", "确认要退出嘛？") {
-            positiveButton("取消") { dialog -> dialog.dismiss() }
-            negativeButton("确认") { dialog ->
-                dialog.dismiss()
-                finish()
-            }
-        }.show()
+        if (lastBack == 0L || System.currentTimeMillis() - lastBack > 2000) {
+            toast("再按一次返回退出程序")
+            lastBack = System.currentTimeMillis()
+            return
+        }
+        super.onBackPressed()
     }
 }

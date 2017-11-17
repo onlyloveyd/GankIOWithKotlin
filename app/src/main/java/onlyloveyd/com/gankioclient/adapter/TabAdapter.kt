@@ -45,5 +45,5 @@ class TabAdapter
     override fun getPageTitle(position: Int): CharSequence = Constant.sCategoryList[position]
 
 
-    override fun getItemPosition(`object`: Any?): Int = PagerAdapter.POSITION_NONE
+    override fun getItemPosition(`object`: Any): Int = PagerAdapter.POSITION_NONE
 }

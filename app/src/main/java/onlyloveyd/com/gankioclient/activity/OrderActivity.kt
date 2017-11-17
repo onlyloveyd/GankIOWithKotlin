@@ -73,7 +73,7 @@ class OrderActivity : AppCompatActivity(), OnStartDragListener {
         when (item.itemId) {
             android.R.id.home -> {
                 val upIntent = NavUtils.getParentActivityIntent(this)
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                if (NavUtils.shouldUpRecreateTask(this, upIntent!!)) {
                     TaskStackBuilder.create(this).addNextIntentWithParentStack(
                             upIntent).startActivities()
                 } else {

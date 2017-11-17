@@ -91,8 +91,8 @@ class OrderAdapter(private val mContext: Context, private val mDragStartListener
         val handleView: ImageView
 
         init {
-            textView = itemView.findViewById(R.id.text) as TextView
-            handleView = itemView.findViewById(R.id.handle) as ImageView
+            textView = itemView.findViewById(R.id.text)
+            handleView = itemView.findViewById(R.id.handle)
         }
 
         override fun onItemSelected() {

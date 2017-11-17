@@ -68,7 +68,7 @@ class BonusViewHolder(itemView: View) : BaseViewHolder<CategoryData>(itemView) {
 
                                 }
 
-                                override fun onNext(granted: Boolean?) {
+                                override fun onNext(granted: Boolean) {
                                     if (granted!!) { // Always true pre-M
                                         // I can control the camera now
                                         itemView.context.toast(data.desc +

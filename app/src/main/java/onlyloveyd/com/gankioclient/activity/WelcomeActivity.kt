@@ -51,14 +51,13 @@ class WelcomeActivity : AppCompatActivity() {
         Observable.timer(2000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<Long> {
-                    override fun onSubscribe(d: Disposable) {
-
-                    }
-
-                    override fun onNext(value: Long?) {
+                    override fun onNext(t: Long) {
                         directToHome()
                     }
 
+                    override fun onSubscribe(d: Disposable) {
+
+                    }
                     override fun onError(e: Throwable) {
 
                     }
@@ -71,5 +70,6 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun directToHome() {
         startActivity<GankActivity>()
+        finish()
     }
 }

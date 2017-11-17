@@ -22,8 +22,6 @@ import android.app.Application
 
 import com.squareup.leakcanary.LeakCanary
 
-import im.fir.sdk.FIR
-
 /**
  * 文 件 名: GankApp
  * 创 建 人: 易冬
@@ -35,8 +33,6 @@ import im.fir.sdk.FIR
 class GankApp : Application() {
     override fun onCreate() {
         super.onCreate()
-
-        FIR.init(this)
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
