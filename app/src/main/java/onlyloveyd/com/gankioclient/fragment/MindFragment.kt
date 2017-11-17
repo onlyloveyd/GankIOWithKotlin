@@ -64,6 +64,9 @@ class MindFragment : BaseFragment() {
             }
 
             override fun onNext(mindDataArrayList: ArrayList<MindData>) {
+                if (rl_gank_refresh == null) {
+                    return
+                }
                 if (rl_gank_refresh.isLoadingMore()) {
                 } else {
                     mVisitableList.clear()
@@ -74,6 +77,7 @@ class MindFragment : BaseFragment() {
                     mVisitableList.addAll(mindDataArrayList)
                 }
                 mMultiRecyclerAdapter?.data = mVisitableList;
+
             }
         }
 
@@ -90,7 +94,7 @@ class MindFragment : BaseFragment() {
 
                         val trs = doc!!.select("table").select("tr")
                         for (i in trs.indices) {
-                            var data = MindData("","","")
+                            var data = MindData("", "", "")
                             val time = trs[i].select("td")[1]
                             data.time = time.text()
 

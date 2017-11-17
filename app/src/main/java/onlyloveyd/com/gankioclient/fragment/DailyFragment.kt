@@ -63,6 +63,9 @@ class DailyFragment : BaseFragment(), OnDatePickedListener {
             }
 
             override fun onNext(dailyData: DailyData) {
+                if(rl_gank_refresh==null) {
+                    return
+                }
                 if (rl_gank_refresh.isLoadingMore()) {
                 } else {
                     mVisitableList.clear()

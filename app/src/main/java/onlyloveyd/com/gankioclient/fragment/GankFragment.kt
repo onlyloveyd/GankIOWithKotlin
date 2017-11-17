@@ -58,7 +58,10 @@ open class GankFragment : BaseFragment() {
             }
 
             override fun onNext(httpBean: TypeData) {
-                if (rl_gank_refresh != null && rl_gank_refresh.isLoadingMore()) {
+                if(rl_gank_refresh==null) {
+                    return
+                }
+                if (rl_gank_refresh.isLoadingMore()) {
                 } else {
                     mVisitableList.clear()
                 }
